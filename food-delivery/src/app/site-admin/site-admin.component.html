@@ -1,0 +1,63 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Admin profile section -->
+    <div class="col-md-3">
+      <div class="card">
+        <img
+          src="https://th.bing.com/th/id/OIP.sVVB9SERkuOQQNu3XP2uFAHaJi?pid=ImgDet&rs=1"
+          class="card-img-top"
+          alt="Admin Image"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Admin Name</h5>
+          <!-- Add more admin details here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Libraries section -->
+    <div class="col-md-9">
+      <!-- Restaurant library -->
+      <div class="d-flex">
+        <h2>Restaurants</h2>
+        <input
+          [(ngModel)]="searchRestaurant"
+          placeholder="Search Restaurants"
+          class="form-control mb-3"
+        />
+        <button (click)="addRestaurant()" class="btn btn-success add">
+          <i class="bi bi-house-add-fill"></i>
+        </button>
+      </div>
+      <div class="row mb-3 library">
+        <div class="col-12">
+          <app-admin-restaurant-card
+            *ngFor="let restaurant of filteredRestaurants"
+            [restaurant]="restaurant"
+          ></app-admin-restaurant-card>
+        </div>
+      </div>
+
+      <!-- User library -->
+      <div class="d-flex">
+        <h2>Users</h2>
+        <input
+          [(ngModel)]="searchUser"
+          placeholder="Search Users"
+          class="form-control mb-3"
+        />
+        <button (click)="addUser()" class="btn btn-success add">
+          <i class="bi bi-person-fill-add"></i>
+        </button>
+      </div>
+      <div class="row library">
+        <div class="col-12">
+          <app-admin-user-card
+            *ngFor="let user of filteredUsers"
+            [user]="user"
+          ></app-admin-user-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

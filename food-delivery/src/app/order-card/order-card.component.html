@@ -1,0 +1,29 @@
+<!-- order-card.component.html -->
+<div class="card text-center">
+  <div
+    class="card-header text-white d-flex justify-content-between"
+    [ngClass]="{
+      'bg-success text-white': orderData.status === 'completed',
+      'bg-danger text-white': orderData.status === 'cancelled',
+      'bg-warning text-white': orderData.status === 'active'
+    }"
+  >
+    <h5>Order ID: {{ orderData.orderId }}</h5>
+    <h6>{{ orderData.status }}</h6>
+    <h6>{{ orderData.orderTime }}</h6>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ getRestaurantName() }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Food Items:</h6>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let foodItem of orderData.food">
+        {{ foodItem.name }} - {{ foodItem.price | currency : "INR" }} X
+        {{ foodItem.count }} |
+        {{ foodItem.price * foodItem.count | currency : "INR" }}
+      </li>
+    </ul>
+    <div class="card-footer bg-transparent border-success">
+      Total : {{ orderData.total | currency : "INR" }}
+    </div>
+  </div>
+</div>

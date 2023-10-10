@@ -1,0 +1,36 @@
+.image-container {
+  width: 100%;
+  padding-top: 100%; /* for aspect ratio */
+  position: relative;
+}
+
+.card-img-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.rating-box {
+  padding: 10px;
+  width: 50px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25%;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.whole {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
